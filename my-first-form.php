@@ -39,6 +39,40 @@ var_dump($_POST);
         </p>
         <p>
             <input type="checkbox" value="yes" checked> Save a copy to your sent folder?</input>           
-    </form>
-</body>   
+        </form>
+        <form>
+            <p>Multiple Choice Test</p>
+            <p>Are you awake?</p>
+            <label for="q1a">Yes
+            <input type="radio" id="q1a" name="q1" value="">
+    
+            </label>
+            <label for="q1b">No
+            <input type="radio" id="q1b" name="q1" value="">
+    
+            </label>
+            <label for="q1c">Maybe
+            <input type="radio" id="q1c" name="q1" value="">
+            <p>Are you tired?</p>
+            <label for="q1a">Yes
+            <input type="radio" id="q1a" name="q1" value="">
+    
+            </label>
+            <label for="q1b">No
+            <input type="radio" id="q1b" name="q1" value="">
+    
+            </label>
+            <label for="q1c">Maybe
+            <input type="radio" id="q1c" name="q1" value="">
+  
+            </label>
+        
+        
+   
+
+    </body>   
 </html>
+
+
+
+
