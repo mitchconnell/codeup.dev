@@ -24,8 +24,8 @@ var_dump($_POST);
             <input id="password" placeholder="Enter your password"name="password" type="password">
         </p>
 
-        <label for= "comments">Comments</label>
-        <textarea id= "comments" name= "comments"></textarea>
+            <label for= "comments">Comments</label>
+            <textarea id= "comments" name= "comments"></textarea>
 
         <p>
             <button type="submit">Login by clicking here</button>
@@ -63,13 +63,19 @@ var_dump($_POST);
     
             </label>
             <label for="q1c">Maybe
-            <input type="radio" id="q1c" name="q1" value="">
-  
+            <input type="radio" id="q1c" name="q1" value=""> 
             </label>
+        </form>  
+        <form>
+            <p>Select Testing</p>
+            <label for="os">Are you healthy? </label>
+            <select id="os" name="os[]" multiple>
+            <option value="yes">yes</option>
+            <option value="no">no</option>
+        </select>
+        </form>                
         
         
-   
-
     </body>   
 </html>
 
