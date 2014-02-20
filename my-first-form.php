@@ -16,15 +16,15 @@ var_dump($_POST);
     <body>
         <form method="GET" action="">
         <p>
-            <label for="username" >Username</label>
+        <label for="username" >Username</label>
             <input id="username" placeholder="Enter your username" name="username" type="text">
         </p>
         <p>
-            <label for="password" >Password</label>
+        <label for="password" >Password</label>
             <input id="password" placeholder="Enter your password"name="password" type="password">
         </p>
 
-            <label for= "comments">Comments</label>
+        <label for= "comments">Comments</label>
             <textarea id= "comments" name= "comments"></textarea>
 
         <p>
@@ -32,7 +32,7 @@ var_dump($_POST);
         </p>   
         <p>
         <p>
-            <label for="email_body">Compose an Email</label>
+        <label for="email_body">Compose an Email</label>
         </p>    
         <p>    
             <textarea id="email_body" rows="5" cols="40" name="email_body">Content Here</textarea>
@@ -43,36 +43,48 @@ var_dump($_POST);
         <form>
             <p>Multiple Choice Test</p>
             <p>Are you awake?</p>
-            <label for="q1a">Yes
+        <label for="q1a">Yes
             <input type="radio" id="q1a" name="q1" value="">
     
-            </label>
-            <label for="q1b">No
+        </label>
+        <label for="q1b">No
             <input type="radio" id="q1b" name="q1" value="">
     
             </label>
-            <label for="q1c">Maybe
+        <label for="q1c">Maybe
             <input type="radio" id="q1c" name="q1" value="">
             <p>Are you tired?</p>
-            <label for="q1a">Yes
+        <label for="q1a">Yes
             <input type="radio" id="q1a" name="q1" value="">
     
-            </label>
+        </label>
             <label for="q1b">No
-            <input type="radio" id="q1b" name="q1" value="">
+        <input type="radio" id="q1b" name="q1" value="">
     
             </label>
-            <label for="q1c">Maybe
-            <input type="radio" id="q1c" name="q1" value=""> 
-            </label>
+        <label for="q1c">Maybe
+
+            <input type="radio" id="q1c" name="q1" value="">
+            </form>
+          <form> 
+        </label>
+        <label for="gs">What guitar systems have you used? </label>
+            <select id="gs" name="gs[]" multiple>
+            <option value="line6">Line 6</option>
+            <option value="fractal">Fractal</option>
+            <option value="guitarrig">Guitar Rig</option>
+            </select>
+
+
         </form>  
         <form>
             <p>Select Testing</p>
-            <label for="os">Are you healthy? </label>
-            <select id="os" name="os[]" multiple>
-            <option value="yes">yes</option>
-            <option value="no">no</option>
-        </select>
+        <label for="q">Are you healthy? </label>
+
+            <select id="q" name="q[]" multiple>
+            <option value="1">yes</option>
+            <option value="0">no</option>
+            </select>
         </form>                
         
         
