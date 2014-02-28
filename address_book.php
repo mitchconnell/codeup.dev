@@ -1,5 +1,7 @@
 <?php
 var_dump($_POST);
+$address_book = [];
+
 $filename = 'address_book.csv';
 function save_file($filename, $address_book){
 	$handle = fopen($filename, "w" );
@@ -11,21 +13,13 @@ function save_file($filename, $address_book){
 function readCSV($filename) {
 	$contents = [];
 	$handle = fopen($filename,"r");
-	foreach ($_POST as $info) {		
-	}
 	while (($data = fgetcsv($handle))!==FALSE) {
 		$contents [] = $data;
 	}
 	fclose($handle);
 	return $contents;
 }
-
-
-$address_book = [
-    ['The White House', '1600 Pennsylvania Avenue NW', 'Washington', 'DC', '20500'],
-    ['Marvel Comics', 'P.O. Box 1527', 'Long Island City', 'NY', '11101'],
-    ['LucasArts', 'P.O. Box 29901', 'San Francisco', 'CA', '94129-0901']
-];    
+$address_book = readCSV($filename);
 
  if ((!empty($_POST['name'])) && (!empty($_POST['address'])) && (!empty($_POST['city'])) && (!empty($_POST['state'])) && (!empty($_POST['zip']))){
  	$new_contact = [];
@@ -35,7 +29,16 @@ $address_book = [
   	array_push ($address_book, $new_contact);
   	save_file ($filename, $address_book);
   }
+if (isset($_GET['remove'])){
+ 	$key = $_GET['remove'];
+	unset($address_book[$key]);	
+	save_file($filename, $address_book);
+	header("Location: address_book.php");
+	exit;
+}	
  
+
+ 	
 ?>
 <html>
 <head>
@@ -45,12 +48,13 @@ $address_book = [
 	<h1>Address Book Entries</h1>
 	<table>
 		<?php	
-		foreach ($address_book as $contacts) {
+		foreach ($address_book as $key => $contacts) {
 			echo "<tr>";
 		foreach ($contacts as $info) {
 			echo "<td> $info </td>";				
 			}
-			echo "</tr>";       
+			echo "<td><a href='?remove=$key'>delete</a></td>";
+			echo "</tr>";       	      
 		}
 		?>		
 	</table>
