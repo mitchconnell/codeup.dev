@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+//var_dump($_POST);
 $address_book = [];
 
 $filename = 'address_book.csv';
