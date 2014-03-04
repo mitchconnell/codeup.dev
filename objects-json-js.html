@@ -11,38 +11,41 @@
 // Be creative and add at least 5 books to the array
   var books = [
  	{
- 		'Title' : 'The Origin of Species',
- 		'Author' :{
- 			'firstName' : 'Charles',
- 		    'lastName' : 'Darwin'
+
+
+
+ 		Title : "The Origin of Species",
+ 		Author :{
+ 			firstName : "Charles",
+ 		    lastName : "Darwin"
  		}
  	},
  	{
- 		'Title' : 'Holy Bible: King James Version',
- 		'Author' :{
- 			'firstName' : 'Anonymous',
- 		    'lastName' : ''
+ 		Title : "Holy Bible: King James Version",
+ 		Author :{
+ 			firstName : "Anonymous",
+ 		    lastName : ""
  		}
  	},
  	{
- 		'Title' : 'The Quran',
- 		'Author' :{
- 			'firstName' : 'Anonymous',
- 		    'lastName' : ''
+ 		Title : "The Quran",
+ 		Author :{
+ 			firstName : "Anonymous",
+ 		    lastName : ""
  		} 
  	},
  	{
- 		'Title' : 'The Communist Manifesto',
- 		'Author' :{
- 			'firstName' : 'Karl',
- 		    'lastName' : 'Marx'
+ 		Title : "The Communist Manifesto",
+ 		Author :{
+ 			firstName : "Karl",
+ 		    lastName : "Marx"
  		}
  	},
  	{
- 		'Title' : 'The Republic',
- 		'Author' :{
- 			'firstName' : 'Plato',
- 		    'lastName' : ''
+ 		Title : "The Republic",
+ 		Author :{
+ 			firstName : "Plato",
+ 		    lastName : ""
  		}
  	}
 ]
@@ -51,7 +54,7 @@ console.log(books);
 // todo:
 // Loop through the array of books using .forEach and print out the specified information about each one.
 // start loop here
-books.forEach(function(elements, index, array){
+books.forEach(function(elements, index, array) {
     console.log("Book #" +  index);
     console.log("Title: " + elements.Title);
     console.log("Author: " + elements.Author.firstName + ' ' + elements.Author.lastName);
