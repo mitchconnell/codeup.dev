@@ -5,14 +5,12 @@
  //class UnexpectedTypeException extends Exception {}
 
 class TodoList extends Filestore {
- 
-	
+ 	
 	// Set list items and optional filename
 	public function __construct($filename = '') {
 		$filename = strtolower($filename);
 		parent::__construct($filename);
 	}
-
 	// Add item to list, return new list
 	//public function add_item($item) {
 		//$new_item = htmlspecialchars(strip_tags($item));
@@ -27,10 +25,8 @@ class TodoList extends Filestore {
 			header("Location: $redirect");
 			exit(0);	
 		}	
-	}
- 
+	} 
 }
-
 //try {
     // try as a float (double)
     //$chat = new Conversation(323.32);
@@ -38,9 +34,5 @@ class TodoList extends Filestore {
     // Try again as a string if double failed
     //$chat = new Conversation("323.32");
 //}
-
-//echo $chat->say_hello(TRUE); 
-
-
- 
+//echo $chat->say_hello(TRUE);  
 ?>
