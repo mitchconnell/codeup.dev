@@ -1,5 +1,5 @@
 <?php
-var_dump($_FILES);
+//var_dump($_FILES);
 $filename = "todo_list.txt";
 //save an array to a file
 function save_file($filename, $todos){
@@ -24,6 +24,7 @@ function read_file($filename){
 }
 $todos = read_file($filename);
 
+
 //$items = read_from_file($filename);
  if (isset($_GET['remove'])){
  	$key = $_GET['remove'];
@@ -34,7 +35,7 @@ $todos = read_file($filename);
 }
  //load file
  if(!empty($_POST['new_item'])){
- 	$new_item = $_POST['new_item'];
+ 	$new_item =  htmlspecialchars(strip_tags($_POST['new_item']));
  	array_push($todos, $new_item);
  	save_file($filename, $todos); 
  }
