@@ -35,8 +35,9 @@ class AddressDataStore {
 		if (filesize($this->filename) > 0 {
 			return $this ->read_address_book($this->filename);
 		} else {
+		
 			return array();
-		}
+	
 	}	
 
 	public function add_item($address_book) {
@@ -51,40 +52,42 @@ class AddressDataStore {
 			if (is_string($redirect)) {
 	}
 }
-//$filename = 'address_book.csv';
-//function save_file($filename, $address_book){
-	//$handle = fopen($filename, "w" );
-	//foreach ($address_book as $rows) {
-	//fputcsv($handle, $rows);	
-	//}
-    //fclose($handle);
-//}
-//function readCSV($filename) {
-	//$contents = [];
-	//$handle = fopen($filename,"r");
-	////while (($data = fgetcsv($handle))!==FALSE) {
-		//$contents [] = $data;
-	//}
-	//fclose($handle);
-	//return $contents;
-//}
-//$address_book = readCSV($filename);
+if(count($_FILES) > 0 && $_FILES['file1']['error'] == 0) {
+	if($_FILES['file1']['type'] == 'text/csv') {
+		$upload_dir = '/vagrant/sites/codeup.dev/public/uploads/';
+		$filename = basename($_FILES['file1']['name']);
+		$saved_filename = $upload_dir . $filename;
+		move_uploaded_file($_FILES['file1']['tmp_name'], $saved_filename);
+		$uploaded_file = new AddressDataStore($saved_filename);
+		$new_array = $uploaded_file->read();
+		$address_book = array_merge($address_book, $new_array);
+		$run->write($address_book);
+		header("Location:address_book.php");
+		exit(0);
 
- //if ((!empty($_POST['name'])) && (!empty($_POST['address'])) && (!empty($_POST['city'])) && (!empty($_POST['state'])) && (!empty($_POST['zip']))){
- 	//$new_contact = [];
-  	//foreach ($_POST as $info) {
-  		//$new_contact[] =  htmlspecialchars(strip_tags($info));
-  	//}
-  	//array_push ($address_book, $new_contact);
-  	//save_file ($filename, $address_book);
-  //}
-//if (isset($_GET['remove'])){
- 	//$key = $_GET['remove'];
-	//unset($address_book[$key]);	
-	//save_file($filename, $address_book);
-	//header("Location: address_book.php");
-	//exit;
-//}	 	
+	}
+
+ if(!empty($_POST)) {
+	try {
+		$run->validate('name', $_POST['name']);
+		$run->validate('address', $_POST['address']);
+		$run->validate('city', $_POST['city']);
+		$run->validate('state', $_POST['state']);
+		$run->validate('zip', $_POST['zip']);
+	    array_push($address_book, array_values($_POST));
+	    $run->write($address_book);
+	} catch (Exception $e) {
+		//$errorMessage = "You must enter between 1 and 125 characters.";
+		echo 'Error: ' . $e->getMessage();
+	}
+
+if (isset($_GET['remove'])) {
+	$remove = $_GET['remove'];
+	unset($address_book[$remove]);
+	$run->write($address_book);
+	header("Location:address_book.php");
+	exit(0);
+} 	
 ?>
 <html>
 <head>
