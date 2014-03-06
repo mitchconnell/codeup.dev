@@ -1,0 +1,17 @@
+
+.fancy-header {
+    color:rgb( 75,   0, 130) ;
+    text-decoration: underline;
+}
+
+body { 
+	background-color: rgb(224, 255, 255);
+}
+
+li { 
+	list-style: circle;
+}
+
+body { 
+	font-style: italic; 
+}

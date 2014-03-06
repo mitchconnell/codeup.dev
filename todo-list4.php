@@ -25,11 +25,12 @@ if (!empty($_POST['newitem'])) {
 <html>
 <head>
 	<title>ToDo List</title>
+	<link rel="stylesheet" href="/css/stylesheet.css">
 </head>
 <body>
-	<h1>ToDo List</h1>
+	<h1 class="fancy-header">ToDo List</h1>
 	<? if (count($items) > 0 ): ?>
-		<ul>
+		<ul class="style" >
 			<? foreach ($items as $key => $item): ?>
 				<li><?= $item; ?> | <a href='todo-list4.php?remove=<?= $key; ?>' name='remove' id='remove'>remove</a></li>
 			<? endforeach; ?>
@@ -37,7 +38,7 @@ if (!empty($_POST['newitem'])) {
 	<? else: ?>
 		<p>You have 0 todo items.</p>
 	<? endif; ?>
-	<h2>Add ToDos to List</h2>
+	<h2 class="fancy-header">Add ToDos to List</h2>
 	<form method="POST" action="">
 		<p>
 			<label for="newitem">Item to add:</label>
