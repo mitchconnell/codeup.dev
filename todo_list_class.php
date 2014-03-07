@@ -4,23 +4,15 @@
 
  //class UnexpectedTypeException extends Exception {}
 
-class TodoList extends Filestore {
- 	
+class TodoList extends Filestore { 	
 	// Set list items and optional filename
 	public function __construct($filename = '') {
 		$filename = strtolower($filename);
 		parent::__construct($filename);
-	}
-	// Add item to list, return new list
-	//public function add_item($item) {
-		//$new_item = htmlspecialchars(strip_tags($item));
-		//array_push($this->, $item);
-		//$this->save_file();
-	//} 
-	// Remove item from list, redirect optional
-	public function remove_item($key, $redirect = FALSE) {
-		unset($this->items[$key]);
-		$this->save_file();
+	}	
+	public function remove_item($key, $redirect = FALSE, $array) {
+		unset($array[$key]);
+		$this->write($array);
 		if (is_string($redirect)) {
 			header("Location: $redirect");
 			exit(0);	

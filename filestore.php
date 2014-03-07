@@ -21,23 +21,25 @@ class Filestore {
             return $this->read_lines();
         }        
     }
-
     public function write($array) {
         if($this->is_csv == TRUE) {
-           $this->write_csv();
+           $this->write_csv($array);
         } else {
             return $this->write_lines($array);
         }
     }
-
     public function read_lines() {
-    
-        $handle = fopen($this->filename, "r");
-        $contents = fread($handle, filesize($this->filename));
-        fclose($handle);
-        return explode("\n", $contents);
+        $filesize = filesize($this->filename);
+        
+        if ($filesize > 0) {           
+            $handle = fopen($this->filename, "r");
+            $contents = fread($handle, $filesize);        
+            fclose($handle);
+            return explode("\n", $contents);
+        } else {
+            return $contents = [];
+        }
     } 
-
     function write_lines($array) {
     
         $itemStr = implode("\n", $array);
@@ -45,9 +47,7 @@ class Filestore {
         fwrite($handle, $itemStr);
         fclose($handle);
     } 
-
-    function read_csv($array) {
-    
+    function read_csv($array) {    
         $address_book = [];
         if(empty($this->filename)) {
             $address_book = [];
@@ -58,17 +58,14 @@ class Filestore {
             }   
             fclose($handle);
         }
-
         return $address_book;
-    }
-    
-    function write_csv($array) {
-    
+    }    
+    function write_csv($array) {    
         $handle = fopen($this->filename, "w");
         foreach ($array as $row) {
             fputcsv($handle, $row);
         }
-        fclose($handle);
+            fclose($handle);
     }
 }
 
