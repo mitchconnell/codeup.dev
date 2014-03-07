@@ -25,7 +25,7 @@ if (!empty($_POST['newitem'])) {
 	<title>ToDo List</title>
 	<link rel="stylesheet" href="/css/stylesheet.css">
 </head>
-<body>
+<body><iframe width="560" height="315" src="//www.youtube.com/embed/Y9DA8gCj9pA?list=UUdQp3ijXQOVXsF3AsdAgq1A" frameborder="0" allowfullscreen></iframe>
 	<h1 class="fancy-header">ToDo List</h1>
 	<? if (count($items) > 0 ): ?>
 		<ul class="style" >
