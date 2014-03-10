@@ -1,142 +1,126 @@
 <?php
 
-class AddressDataStore {
+require_once("AddressDataStore.php");
 
-	// Set default file name and location
-    public $filename = 'address_book.csv';
+$address_book = new AddressDataStore("address_book.csv");
 
-    // Set the defaults items array
-    public $address_book = array();
+$addresses = $address_book->open();
 
-    // Set list items and optional filename
-    public function __construct($filename = '') {
-    	if (!empty($filename)) {
-    		$this->filename = $filename;
-    	}
-    	$this->address_book = $this->get_list();
-    }
-    // Read a txt file, return an array
-    public function read_address_book() {
-    	// Code to read file $this->filename
-    	$handle = fopen($this->filename, "r");
-    	$contents = fread($handle, filesize($this->filename));
-    	fclose($handle);
-    	return explode("\n", $contents);
-    }	          
-    public function write_address_book() { 
-    	// Code to write $addresses_array to file $this->filename
-    	$save_list = implode("\n", $this->filename);
-    	$handle = fopen($this->filename, "w");
-    	fwrite($handle, $save_list);
-    	fclose($handle);        
-    }
-	// Returns an array of todo items
-	public function get_list() {
-		if (filesize($this->filename) > 0 {
-			return $this ->read_address_book($this->filename);
-		} else {
-		
-			return array();
+$error_messages = [];
+
+if (!empty($_POST)) {
 	
-	}	
+	$field['name'] = $_POST['name'];
+	$field['street'] = $_POST['street'];
+	$field['city'] = $_POST['city'];
+	$field['state'] = $_POST['state'];
+	$field['zip'] = $_POST['zip'];
+	$field['usrtel'] = $_POST['usrtel'];
 
-	public function add_item($address_book) {
-		$new_item = htmlspecialchars(strip_tags($info));
-		array_push ($this->address_book);
-		$this->save_file();
+	foreach ($field as $key => $value) {
+		if (empty($value)) {
+			array_push($error_messages, "$key must have a value");	
+		}	
 	}
-
-	public function remove_item ($key, $redirect = FALSE) {
-		unset ($this->address_book[$key]);
-		$this->save_file();
-			if (is_string($redirect)) {
-	}
-}
-if(count($_FILES) > 0 && $_FILES['file1']['error'] == 0) {
-	if($_FILES['file1']['type'] == 'text/csv') {
-		$upload_dir = '/vagrant/sites/codeup.dev/public/uploads/';
-		$filename = basename($_FILES['file1']['name']);
-		$saved_filename = $upload_dir . $filename;
-		move_uploaded_file($_FILES['file1']['tmp_name'], $saved_filename);
-		$uploaded_file = new AddressDataStore($saved_filename);
-		$new_array = $uploaded_file->read();
-		$address_book = array_merge($address_book, $new_array);
-		$run->write($address_book);
-		header("Location:address_book.php");
-		exit(0);
-
-	}
-
- if(!empty($_POST)) {
-	try {
-		$run->validate('name', $_POST['name']);
-		$run->validate('address', $_POST['address']);
-		$run->validate('city', $_POST['city']);
-		$run->validate('state', $_POST['state']);
-		$run->validate('zip', $_POST['zip']);
-	    array_push($address_book, array_values($_POST));
-	    $run->write($address_book);
-	} catch (Exception $e) {
-		//$errorMessage = "You must enter between 1 and 125 characters.";
-		echo 'Error: ' . $e->getMessage();
-	}
-
+	if (empty($error_messages)) {
+			array_push($addresses, $field);
+			$address_book->write($addresses);
+			header("Location: address_book.php");
+			exit(0);
+			}
+} 
 if (isset($_GET['remove'])) {
-	$remove = $_GET['remove'];
-	unset($address_book[$remove]);
-	$run->write($address_book);
-	header("Location:address_book.php");
-	exit(0);
-} 	
+      $itemId = $_GET['remove'];
+      unset($addresses[$itemId]);
+      $address_book->write($addresses);
+      header("Location: address_book.php");
+      exit(0);
+    } 
 ?>
-<html>
-<head>
-	<title>Address Book</title>	
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Address Book</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-	<h1>Address Book Entries</h1>
+	<h1><u>Address Book</u></h1>
+	<hr>
+  <p>
+    <nav>
+    <a href="index.html">Home</a> &nbsp; <a href="hello-world.html">About Me</a>  &nbsp; <a href="my_first_test.php">Test Form</a> &nbsp; <a href="todo-list.php">The To-Do List</a> &nbsp; <a href="address_book.php">Address Book</a>
+    </nav>
+  </p>
+  <hr/>
 	<table>
-		<?php	
-		foreach ($this->filename as $key => $contacts) {
-			echo "<tr>";
-		foreach ($contacts as $info) {
-			echo "<td> $info </td>";				
-			}
-			echo "<td><a href='?remove=$key'>delete</a></td>";
-			echo "</tr>";       	      
-		}
-		?>		
-	</table>
-
-<h2>Add New</h2>
-<form method="POST" action="">
-
-	<p>
-	<label for="name">Name:</label>
-	<input type="text" id="name" name="name" autofocus = "autofocus" placeholder = "Enter name">
-    </p>
-
-    <p>
-	<label for="address">Address:</label>
-	<input type="text" id="address" name="address" autofocus = "autofocus" placeholder = "Enter street address">
-    </p>
-
-    <p>
-	<label for="city">City:</label>
-	<input type="text" id="city" name="city" autofocus = "autofocus" placeholder = "Enter city">
-    </p>
-
-    <p>
-	<label for="state">State:</label>
-	<input type="text" id="state" name="state" autofocus = "autofocus" placeholder = "Enter state">
-    </p>
-
-    <p>
-	<label for="zip">Zip:</label>
-	<input type="text" id="zip" name="zip" autofocus = "autofocus" placeholder = "Enter zip"></p>
-	<p><input type="submit" value="add item"></p>
-    
-</form>
-</body>
-</html>	
-
+		<tr>
+			<td>* Name</td>
+			<td>|&nbsp* Address</td>
+			<td>|&nbsp* City</td>
+			<td>|&nbsp* State/Region</td>
+			<td>|&nbsp* Postal Code</td>
+			<td>|&nbsp* Phone Number</td>
+		</tr>		
+		<?php foreach ($addresses as $key => $row): ?>
+			<tr> <?php foreach ($row as $key2 => $value2): ?>
+				<td> <?= htmlspecialchars(htmlentities(strip_tags($value2)))?> </td>
+			<?php endforeach ?> <td>	<a href=?remove=<?=$key?> > Remove Item</a></li></td></tr> 
+		<?php endforeach ?> 	
+	</table>	
+	<br>
+	<hr>
+	<form method="POST" enctype="multipart/form-data" action="" >
+		<p>
+          <label for="name">Name *</label>
+          <input id="name" name="name" type="text" autofocus='autofocus' placeholder="Enter Full Name" >
+      </p>
+      <p>
+          <label for="street">Street Address *</label>
+          <input id="street" name="street" type="text" placeholder="Enter Address" >
+      </p>
+      <p>
+          <label for="city">City *</label>
+          <input id="city" name="city" type="text" placeholder="Enter City" >
+      </p>
+      <p>
+          <label for="state">State/Region *</label>
+          <input id="state" name="state" type="text" placeholder="Enter State or Region" >
+      </p>
+      <p>
+          <label for="zip">Postal Code *</label>
+          <input id="zip" name="zip" type="text" placeholder="Enter ZIP" >
+      </p>
+      <p>
+          <label for="phone">Telephone *</label>
+          <input id="phone" name="usrtel" type="tel" placeholder="Enter Phone Number">
+      </p>
+      <p>
+          <input type="submit" name="submit" value="Add Item">
+      </p>
+	</form>
+<p>* Required Fields</p>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <hr>
+  <p>
+    <nav>
+    <a href="index.html">Home</a> &nbsp; <a href="hello-world.html">About Me</a>  &nbsp; <a href="todo-list.php">The To-Do List</a> &nbsp; <a href="address_book.php">Address Book</a>
+    </nav>
+  </p>
+  <hr/>
+  </body>
+</html>
