@@ -47,7 +47,7 @@ class Filestore {
         fwrite($handle, $itemStr);
         fclose($handle);
     } 
-    function read_csv($array) {    
+    function read_csv() {    
         $address_book = [];
         if(empty($this->filename)) {
             $address_book = [];

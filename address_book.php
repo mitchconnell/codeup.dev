@@ -2,14 +2,14 @@
 
 require_once("AddressDataStore.php");
 
-$address_book = new AddressDataStore("address_book.csv");
+$book = new AddressDataStore("address_book.csv");
 
-$addresses = $address_book->open();
+$addresses = $book->read();
 
 $error_messages = [];
 
 if (!empty($_POST)) {
-	
+	$field = [];
 	$field['name'] = $_POST['name'];
 	$field['street'] = $_POST['street'];
 	$field['city'] = $_POST['city'];
@@ -24,7 +24,7 @@ if (!empty($_POST)) {
 	}
 	if (empty($error_messages)) {
 			array_push($addresses, $field);
-			$address_book->write($addresses);
+			$book->write($addresses);
 			header("Location: address_book.php");
 			exit(0);
 			}
@@ -32,7 +32,7 @@ if (!empty($_POST)) {
 if (isset($_GET['remove'])) {
       $itemId = $_GET['remove'];
       unset($addresses[$itemId]);
-      $address_book->write($addresses);
+      $book->write($addresses);
       header("Location: address_book.php");
       exit(0);
     } 
@@ -74,7 +74,7 @@ if (isset($_GET['remove'])) {
 			<td>|&nbsp* Phone Number</td>
 		</tr>		
 		<?php foreach ($addresses as $key => $row): ?>
-			<tr> <?php foreach ($row as $key2 => $value2): ?>
+			<tr> <?php foreach ($row as $value2): ?>
 				<td> <?= htmlspecialchars(htmlentities(strip_tags($value2)))?> </td>
 			<?php endforeach ?> <td>	<a href=?remove=<?=$key?> > Remove Item</a></li></td></tr> 
 		<?php endforeach ?> 	
