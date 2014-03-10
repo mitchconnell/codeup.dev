@@ -11,9 +11,9 @@
         function save() {
             alert('Saved!');
         }
+        var delay = 5000;
         var timeoutId;
-        function autosave() {
-            var delay = 5000;
+        function autosave() {            
             clearTimeout(timeoutId);
             timeoutId = setTimeout(save, delay);                           
             // todo:
