@@ -1,9 +1,15 @@
 <?php
 
+
 $mysqli = new mysqli('127.0.0.1', 'mitchell', 'F00die88', 'national_parks');
 
-if ($mysqli->connect_errno) {
-    echo 'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error;
+if (!empty($_POST)) {
+
+	$stmt = $mysqli->prepare("INSERT INTO parks (name, location, description, date_established, area_in_acres) VALUES (?,?,?,?,?)");
+
+	$stmt->bind_param("sssss", $_POST['name'], $_POST['location'], $_POST['description'], $_POST['date_established'], $_POST['area_in_acres']);
+
+	$stmt->execute();
 }
 
 $sortCol = "name";
@@ -16,13 +22,21 @@ $sortOr = "asc";
 
 $query = "SELECT * FROM parks ORDER BY " . $sortCol . " " . $sortOr;
 
-echo $query;
+//echo $query;
 
-if(!($result = $mysqli->query($query))) {
-	throw new Exception('OH NOES! ' . $mysqli->error);
+$parks = $mysqli->query($query);
+if (!$parks) {
+	throw new Exception('Oh NOES! ' . $mysqli->error);
 }
 
-//var_dump($result);
+$rows = array();
+
+// while ($row = $parks->fetch_assoc()) {
+// 	$rows[] = $row;
+// }
+
+
+$mysqli->close();
 
 ?>
 <!DOCTYPE html>
@@ -47,7 +61,7 @@ if(!($result = $mysqli->query($query))) {
 		</tr>
 <?php
 
-	while ($row = $result->fetch_assoc()) {
+	while ($row = $parks->fetch_assoc()) {
 	echo "<tr>";
 	echo "<td>". $row['name'] . "</td>";
 	echo "<td>". $row['location'] . "</td>";
