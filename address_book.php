@@ -59,9 +59,14 @@ if (isset($_GET['remove'])) {
 	<h1><u>Address Book</u></h1>
 	<hr>
   <p>
-    <nav>
-    <a href="index.html">Home</a> &nbsp; <a href="hello-world.html">About Me</a>  &nbsp;  <a href="todo-list.php">My To-Do List</a> &nbsp; <a href="address_book.php">Address Book</a>
-    </nav>
+
+<?php
+
+  $nav = '<nav>
+    <a href="index.html">Home</a> &nbsp; <a href="hello-world.html">About Me</a>  &nbsp;  <a href="todo-list4.php">My To-Do List</a> &nbsp; <a href="address_book.php">Address Book</a>
+    </nav>';
+  echo $nav;
+  ?>
   </p>
   <hr/>
 	<table>
@@ -117,9 +122,9 @@ if (isset($_GET['remove'])) {
     <script src="js/bootstrap.min.js"></script>
     <hr>
   <p>
-    <nav>
-    <a href="index.html">Home</a> &nbsp; <a href="hello-world.html">About Me</a>  &nbsp; <a href="todo-list4.php">The To-Do List</a> &nbsp; <a href="address_book.php">Address Book</a>
-    </nav>
+    
+<?= $nav;?>    
+    
   </p>
   <hr/>
   </body>
