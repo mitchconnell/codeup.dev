@@ -60,7 +60,7 @@ if (isset($_GET['remove'])) {
 	<hr>
   <p>
     <nav>
-    <a href="index.html">Home</a> &nbsp; <a href="hello-world.html">About Me</a>  &nbsp; <a href="my_first_test.php">Test Form</a> &nbsp; <a href="todo-list.php">My To-Do List</a> &nbsp; <a href="address_book.php">Address Book</a>
+    <a href="index.html">Home</a> &nbsp; <a href="hello-world.html">About Me</a>  &nbsp;  <a href="todo-list.php">My To-Do List</a> &nbsp; <a href="address_book.php">Address Book</a>
     </nav>
   </p>
   <hr/>
@@ -118,7 +118,7 @@ if (isset($_GET['remove'])) {
     <hr>
   <p>
     <nav>
-    <a href="index.html">Home</a> &nbsp; <a href="hello-world.html">About Me</a>  &nbsp; <a href="todo-list.php">The To-Do List</a> &nbsp; <a href="address_book.php">Address Book</a>
+    <a href="index.html">Home</a> &nbsp; <a href="hello-world.html">About Me</a>  &nbsp; <a href="todo-list4.php">The To-Do List</a> &nbsp; <a href="address_book.php">Address Book</a>
     </nav>
   </p>
   <hr/>

@@ -1,6 +1,5 @@
 <?php
 
-
 $mysqli = new mysqli('127.0.0.1', 'mitchell', 'F00die88', 'national_parks');
 
 if (!empty($_POST)) {
@@ -22,19 +21,12 @@ $sortOr = "asc";
 
 $query = "SELECT * FROM parks ORDER BY " . $sortCol . " " . $sortOr;
 
-//echo $query;
-
 $parks = $mysqli->query($query);
 if (!$parks) {
 	throw new Exception('Oh NOES! ' . $mysqli->error);
 }
 
 $rows = array();
-
-// while ($row = $parks->fetch_assoc()) {
-// 	$rows[] = $row;
-// }
-
 
 $mysqli->close();
 
