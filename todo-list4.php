@@ -1,5 +1,21 @@
 <?php
 
+$mysqli = new mysqli('127.0.0.1', 'mitchell', 'F00die88', 'Todos');
+
+if (!empty($_POST)) {
+
+	$stmt = $mysqli->prepare("INSERT INTO list (,) VALUES (?)");
+
+	$stmt->bind_param("s", $_POST['']);
+
+	$stmt->execute();
+}
+
+$query = "SELECT * FROM list";
+
+
+
+
 require_once 'todo_list_class.php';
 
 $todo_list = new TodoList('todo_list.txt');
@@ -25,7 +41,24 @@ if (!empty($_POST['newitem'])) {
 	<title>ToDo List</title>
 	<link rel="stylesheet" href="/css/stylesheet.css">
 </head>
-<body><iframe width="560" height="315" src="//www.youtube.com/embed/Y9DA8gCj9pA?list=UUdQp3ijXQOVXsF3AsdAgq1A" frameborder="0" allowfullscreen></iframe>
+<body><h1></h1>
+	<table>
+		<tr>
+			<td>Name <a href="?sort_column=name&amp;sort_order=asc">up</a>
+				<a href="?sort_column=name&amp;sort_order=desc">down</a>
+		</tr>
+<?php
+
+	while ($row = $parks->fetch_assoc()) {
+	echo "<tr>";
+	echo "<td>". $row['name'] . "</td>";
+	echo "</tr>";   
+    }	
+?>		
+	 </table>
+
+
+	<iframe width="560" height="315" src="//www.youtube.com/embed/Y9DA8gCj9pA?list=UUdQp3ijXQOVXsF3AsdAgq1A" frameborder="0" allowfullscreen></iframe>
 	<h1 class="fancy-header">ToDo List</h1>
 	<? if (count($items) > 0 ): ?>
 		<ul class="style" >
