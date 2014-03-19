@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>jQuery Test</title>
+</head>
+<body>
+	<h1 id="manufacturers">5 Affordable North American Guitar Manufacturers</h1>
+
+	<h2 id="companies">5 Affordable North American Guitar Companies</h2>
+
+	 <div class="important">
+        <h3>HEY!</h3>
+        <p>Cheap Guitars!</p>
+    </div>
+
+	<p>So your wallet is feeling pretty light these days but you have decided that you just have to have an American made guitar. Fortunately, there are several options outside the big brand names which offer domestic construction with upgraded features offering more bang for your buck. While these are still priced at a premium compared to imported guitars, smaller shops also pay a greater attention to detail generally ensuring your dollar is not simply paying for advertising in magazines or celebrity endorsements.
+	</p>
+
+	<ul>Strats And Teles	
+	<li>Benford Guitars</li>
+	<li>Godin</li>
+	<li>Carvin </li>
+	<li>First Act</li>
+	<li>Strictly 7</li>
+	</ul>
+	<script src="/js/jquery.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function() {
+				var contents = $('#companies').html();
+				alert(contents);			
+		});
+	</script>
+</body>
+</html>
