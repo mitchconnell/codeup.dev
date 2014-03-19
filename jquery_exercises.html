@@ -6,11 +6,11 @@
 	<title>jQuery Test</title>
 </head>
 <body>
-	<h1 id="manufacturers">5 Affordable North American Guitar Manufacturers</h1>
+	<h1 id="codeup">5 Affordable North American Guitar Manufacturers</h1>
 
 	<h2 id="companies">5 Affordable North American Guitar Companies</h2>
 
-	 <div class="important">
+	 <div class="codeup">
         <h3>HEY!</h3>
         <p>Cheap Guitars!</p>
     </div>
@@ -27,12 +27,32 @@
 	</ul>
 	<script src="/js/jquery.js"></script>
 	 <script>
-        $('document').ready(function() {
-            $('li').css('font-size', '20px');
-            $('h1, p, li').css('background-color', '#FFFF00');
-            var contents = $('h1');
-            alert (contents.html());
-        });
+
+
+ 	$('document').ready(function() {
+    	$('#codeup').click(
+        	function() {
+            	$(this).css('background-color', '#FF0');
+        	}
+    	);
+    	$('p').dblclick(
+    		function() {
+    			$(this).css('font-size', '18px');
+    		}
+    	);
+    	$('li').hover(
+    		function(){
+    			$(this).css('color', 'red');
+    		},
+    	
+    		function(){
+    			$(this).css('color', 'white');
+    		});
+
+   }); 
+
+
+
     </script>
 	
 </body>
