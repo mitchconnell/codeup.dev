@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>National Parks Size</title>
+	<style>
+		.invisible {
+			display: none;
+		}
+
+	</style>
+
+	
+	<script src="/js/jquery.js"></script>
+	<script>
+	</script>
+</head>
+<body>
+	<h1>Park FAQ</h1>
+	<button id="toggleBtn">Toggle Answers</button>
+	<dl>
+  <dt>Acadia</dt>
+    <dd>47,389.67 acres </dd>
+  <dt>American Samoa</dt>
+    <dd>9,000.00 acres </dd>
+    <dt>Arches</dt>
+    <dd>76,518.98 acres </dd>
+  <dt>Badlands</dt>
+    <dd>242,755.94 acres </dd>
+    <dt>Big Bend</dt>
+    <dd>801,163.21 acres </dd>
+  <dt>Biscayne</dt>
+    <dd>172,924.07 acres </dd>
+    <dt>Black Canyon of the Gunnison</dt>
+    <dd>32,950.03 acres </dd>
+  <dt>Bryce Canyon</dt>
+    <dd>35,835.08 acres </dd>
+    <dt>Canyonlands</dt>
+    <dd>337,597.83 acres </dd>
+  <dt>Capitol Reef</dt>
+    <dd>241,904.26 acres </dd>
+
+
+</dl>
+  <script>
+ 
+        $('dd').addClass('invisible');
+ 
+        $('dt').click(function () {
+            $(this).next().toggleClass('invisible');
+        });
+ 
+    </script>
+
+
+
+</body>
+</html>
