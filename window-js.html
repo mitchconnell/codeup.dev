@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Delayed Autosave</title>
+    <script src="/js/jquery.js"></script>
 </head>
 <body>
     <h2>Autosaving Text Input</h2>
@@ -26,8 +27,9 @@
         // this causes the autosave function to be called whenever
         // a key up event occurs in the textarea
         // we will learn about events in the DOM lessons
-        var textarea = document.getElementById('important');
-        textarea.addEventListener('keyup', autosave, false);
+        var textarea = $('#important');
+        textarea.on('keyup', autosave);
+        // textarea.addEventListener('keyup', autosave, false);
     </script>
 </body>
 </html>
