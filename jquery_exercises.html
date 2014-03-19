@@ -1,37 +1,42 @@
+
+<!DOCTYPE html>
+
 <html>
 <head>
-    <title>Exampe jQuery Page</title>
-    <style>
-        .important {
-            text-align: center;
-        }
-    </style>
-    <script src="/js/jquery.js"></script>
-   
+	<title>jQuery Test</title>
 </head>
 <body>
-    <h1 class="codeup">Example Page</h1>
-    <div class="codeup">
-        <h3>NOTICE</h3>
-        <p>This is an important message!</p>
-    </div>
-    <div class="not important">
-        <h2>Lorem Ipsum</h2>
-        <p>Lorem ipsum dolor sit amet, incididunt ut <span class="codeup">labore et dolore magna aliqua.</span>, quis ut aliquip ex ea commodo.</p>
-    </div>
-    <p class="codeup">
-        This is also very important.
-    </p>
+	<h1 id="manufacturers">5 Affordable North American Guitar Manufacturers</h1>
 
-     <script>
-     	$('#codeup, .codeup').css('border', 'solid 1px red');
+	<h2 id="companies">5 Affordable North American Guitar Companies</h2>
 
-       
+	 <div class="important">
+        <h3>HEY!</h3>
+        <p>Cheap Guitars!</p>
+    </div>
+
+	<p>So your wallet is feeling pretty light these days but you have decided that you just have to have an American made guitar. Fortunately, there are several options outside the big brand names which offer domestic construction with upgraded features offering more bang for your buck. While these are still priced at a premium compared to imported guitars, smaller shops also pay a greater attention to detail generally ensuring your dollar is not simply paying for advertising in magazines or celebrity endorsements.
+	</p>
+
+	<ul>Strats And Teles	
+	<li>Benford Guitars</li>
+	<li>Godin</li>
+	<li>Carvin </li>
+	<li>First Act</li>
+	<li>Strictly 7</li>
+	</ul>
+	<script src="/js/jquery.js"></script>
+	 <script>
+        $('document').ready(function() {
+            $('li').css('font-size', '20px');
+            $('h1, p, li').css('background-color', '#FFFF00');
+            var contents = $('h1');
+            alert (contents.html());
+        });
     </script>
-
-
-
-
+	
 </body>
-</html>
+</html> 
+
+
 
