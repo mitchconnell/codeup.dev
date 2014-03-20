@@ -4,53 +4,72 @@
 	<style>
 		.invisible {
 			display: none;
-		}
-
+		}		
 	</style>
-
-	
 	<script src="/js/jquery.js"></script>
+	<script type="text/javascript"></script>
 	<script>
-	</script>
+        $(document).ready(function() {
+            $('li').first().css('font-weight: bold');
+        });
+    </script>	
 </head>
 <body>
 	<h1>Park FAQ</h1>
 	<button id="toggleBtn">Toggle Answers</button>
+	<h3>Acadia</h3>
+    <ul id="national-parks">
+        <li>Covers most of Mount Desert Island</li>
+        <li>Features the tallest mountain on the Atlantic coast</li>
+        <li>Has freshwater estuary</li>
+        <li>Has intertidal habitats</li>   
+    </ul>
+    <h3>American Samoa</h3>
+    <ul id="state-parks-texas">
+        <li>It is the southernmost national park is on three Samoan islands</li>
+        <li>Protects coral reefs</li>
+        <li>It is home to flying foxes</li>
+        <li>It is home to 900 species of fish</li>
+        
+    </ul>
+    <h3>Arches</h3>
+    <ul id="state-parks-texas">
+        <li>This site features more than 2,000 natural sandstone arches</li>
+        <li>Millions of years of erosion have led to these structures</li>
+        <li>The arid ground has life-sustaining soil </li>
+        <li>Other geologic formations are stone columns and towers</li>      
+    </ul>
+
 	<dl>
-  <dt>Acadia</dt>
-    <dd>47,389.67 acres </dd>
-  <dt>American Samoa</dt>
-    <dd>9,000.00 acres </dd>
+  	<dt>Acadia</dt>
+    	<dd>47,389.67 acres </dd>
+  	<dt>American Samoa</dt>
+    	<dd>9,000.00 acres </dd>
     <dt>Arches</dt>
-    <dd>76,518.98 acres </dd>
-  <dt>Badlands</dt>
-    <dd>242,755.94 acres </dd>
+    	<dd>76,518.98 acres </dd>
+  	<dt>Badlands</dt>
+    	<dd>242,755.94 acres </dd>
     <dt>Big Bend</dt>
-    <dd>801,163.21 acres </dd>
-  <dt>Biscayne</dt>
-    <dd>172,924.07 acres </dd>
+    	<dd>801,163.21 acres </dd>
+  	<dt>Biscayne</dt>
+    	<dd>172,924.07 acres </dd>
     <dt>Black Canyon of the Gunnison</dt>
-    <dd>32,950.03 acres </dd>
-  <dt>Bryce Canyon</dt>
-    <dd>35,835.08 acres </dd>
+    	<dd>32,950.03 acres </dd>
+  	<dt>Bryce Canyon</dt>
+    	<dd>35,835.08 acres </dd>
     <dt>Canyonlands</dt>
-    <dd>337,597.83 acres </dd>
-  <dt>Capitol Reef</dt>
-    <dd>241,904.26 acres </dd>
+   		<dd>337,597.83 acres </dd>
+  	<dt>Capitol Reef</dt>
+    	<dd>241,904.26 acres </dd>
+	</dl>
 
+  	<script> 
 
-</dl>
-  <script>
- 
-        $('dd').addClass('invisible');
- 
+        $('dd').addClass('invisible'); 
         $('dt').click(function () {
             $(this).next().toggleClass('invisible');
-        });
- 
+        }); 
     </script>
-
-
-
 </body>
 </html>
+
