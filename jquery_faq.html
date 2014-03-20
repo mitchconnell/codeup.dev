@@ -2,7 +2,7 @@
 <head>
 	<title>Parks FAQ</title>
 	<style type="text/css" media="screen">
-        #Acadia, #American-Samoa, #Arches  {
+        #Acadia, #American-Samoa, #Arches, #Badlands, #Big-Bend, #Biscayne, #Black-Canyon-of-the-Gunnison, #Bryce-Canyon, #Canyonlands, #Capitol-Reef   {
             display: none;
         }
     </style>
@@ -10,41 +10,84 @@
     <script>
         $('document').ready(function() {
             $('#Acadia-toggle').click(function() {
-                $('#Acadia').toggle();
+                $('#Acadia').fadeToggle();
             });
             $('#American-Samoa-toggle').click(function() {
-                $('#American-Samoa').toggle();
+                $('#American-Samoa').fadeToggle();
             });
             $('#Arches-toggle').click(function() {
-                $('#Arches').toggle();
+                $('#Arches').fadeToggle();
+            });
+            $('#Badlands-toggle').click(function() {
+                $('#Badlands').fadeToggle();
+            });$('#Big-Bend-toggle').click(function() {
+                $('#Big-Bend').fadeToggle();
+            });$('#Biscayne-toggle').click(function() {
+                $('#Biscayne').fadeToggle();
+            });$('#Arches-toggle').click(function() {
+                $('#Black-Canyon-of-the-Gunnison').fadeToggle();
+            });$('#Black-Canyon-of-the-Gunnison-toggle').click(function() {
+                $('#Arches').fadeToggle();
+            });$('#Bryce-Canyon-toggle').click(function() {
+                $('#Bryce-Canyon').fadeToggle();
+            });$('#Canyonlands-toggle').click(function() {
+                $('#Canyonlands').fadeToggle();
+            });$('#Capitol-Reef-toggle').click(function() {
+                $('#Capitol-Reef').fadeToggle();
             });
         });
     </script>
+
 </head>
 <body>
 	<h1>Parks</h1>
-	<h3 id="Acadia-toggle">Acadia</h3>
-    <ul id="Acadia">
+	<h3>Acadia</h3>
+    <ul>
         <li>Covers most of Mount Desert Island</li>
         <li>Features the tallest mountain on the Atlantic coast</li>
         <li>Has freshwater estuary</li>
         <li>Has intertidal habitats</li>   
     </ul>
-    <h3 id="American-Samoa-toggle">American-Samoa</h3>
-    <ul id="American-Samoa">
+    <h3>American-Samoa</h3>
+    <ul>
         <li>It is the southernmost national park is on three Samoan islands</li>
         <li>Protects coral reefs</li>
         <li>It is home to flying foxes</li>
         <li>It is home to 900 species of fish</li>
         
     </ul>
-    <h3 id="Arches-toggle">Arches</h3>
-    <ul id="Arches">
+    <h3>Arches</h3>
+    <ul>
         <li>This site features more than 2,000 natural sandstone arches</li>
         <li>Millions of years of erosion have led to these structures</li>
         <li>The arid ground has life-sustaining soil </li>
         <li>Other geologic formations are stone columns and towers</li>      
     </ul>
+
+    <dl>
+  	<dt id="Acadia-toggle">Acadia</dt>
+    	<dd id="Acadia">47,389.67 acres </dd>
+  	<dt id="American-Samoa-toggle">American-Samoa</dt>
+    	<dd id="American-Samoa">9,000.00 acres </dd>
+    <dt id="Arches-toggle">Arches</dt>
+    	<dd id="Arches">76,518.98 acres </dd>
+  	<dt id="Badlands-toggle">Badlands</dt>
+    	<dd id="Badlands">242,755.94 acres </dd>
+    <dt id="Big-Bend">Big Bend</dt>
+    	<dd id="Big-Bend">801,163.21 acres </dd>
+  	<dt id="Biscayne-toggle">Biscayne</dt>
+    	<dd id"Biscayne">172,924.07 acres </dd>
+    <dt id="Black-Canyon-of-the-Gunnison-toggle">Black Canyon of the Gunnison</dt>
+    	<dd id="Black-Canyon-of-the-Gunnison">32,950.03 acres </dd>
+  	<dt id="Bryce-Canyon-toggle">Bryce Canyon</dt>
+    	<dd id="Bryce-Canyon">35,835.08 acres </dd>
+    <dt id="Canyonlands-toggle">Canyonlands</dt>
+   		<dd id="Canyonlands">337,597.83 acres </dd>
+  	<dt id="Capitol-Reef-toggle">Capitol Reef</dt>
+    	<dd id="Capitol-Reef">241,904.26 acres </dd>
+	</dl>
+
+
 
   	
 </body>
