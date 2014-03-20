@@ -5,27 +5,20 @@
 		.invisible {
 			display: none;
 		}		
-	</style>
-	<script src="/js/jquery.js"></script>
-	<script type="text/javascript"></script>
-	<script>
-        $(document).ready(function() {
-            $('li').first().css('font-weight: bold');
-        });
-    </script>	
+	</style>   	
 </head>
 <body>
 	<h1>Park FAQ</h1>
 	<button id="toggleBtn">Toggle Answers</button>
 	<h3>Acadia</h3>
-    <ul id="national-parks">
+    <ul id="Acadia">
         <li>Covers most of Mount Desert Island</li>
         <li>Features the tallest mountain on the Atlantic coast</li>
         <li>Has freshwater estuary</li>
         <li>Has intertidal habitats</li>   
     </ul>
     <h3>American Samoa</h3>
-    <ul id="state-parks-texas">
+    <ul id="American-Samoa">
         <li>It is the southernmost national park is on three Samoan islands</li>
         <li>Protects coral reefs</li>
         <li>It is home to flying foxes</li>
@@ -33,7 +26,7 @@
         
     </ul>
     <h3>Arches</h3>
-    <ul id="state-parks-texas">
+    <ul id="Arches">
         <li>This site features more than 2,000 natural sandstone arches</li>
         <li>Millions of years of erosion have led to these structures</li>
         <li>The arid ground has life-sustaining soil </li>
@@ -63,12 +56,18 @@
     	<dd>241,904.26 acres </dd>
 	</dl>
 
-  	<script> 
+  	<script src="/js/jquery.js"></script>
+	<script type="text/javascript"></script>
+	<script>
+	$(document).ready(function() {
 
-        $('dd').addClass('invisible'); 
-        $('dt').click(function () {
-            $(this).next().toggleClass('invisible');
-        }); 
+		$('ul').each(function(){
+			$(this).children().first().css('font-weight', 'bold');
+		})
+	
+
+	});
+       
     </script>
 </body>
 </html>
