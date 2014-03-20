@@ -1,1 +1,79 @@
-html
+<html>
+<head>
+	<title>Mole</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<style>
+ 
+		#game-board {
+			margin: 10px auto;
+			width: 456px;
+		}
+ 
+		.mole-hole {
+			height: 150px;
+			width: 150px;
+			border: 1px solid black;
+			float: left;
+		}
+ 
+		.mole-hole img {
+			display: none;
+		}
+ 
+		body {
+			text-align: center;
+		}
+ 
+	</style>
+</head>
+<body>
+ 
+	<h1>Mole Game</h1>
+ 
+	<div id="game-board">
+ 
+		<div class="mole-hole">
+			<img src="img/mole.png">
+		</div>
+		<div class="mole-hole">
+			<img src="img/mole.png">
+		</div>
+		<div class="mole-hole">
+			<img src="img/mole.png">
+		</div>
+ 
+		<div class="mole-hole">
+			<img src="img/mole.png">
+		</div>
+		<div class="mole-hole">
+			<img src="img/mole.png">
+		</div>
+		<div class="mole-hole">
+			<img src="img/mole.png">
+		</div>
+ 
+		<div class="mole-hole">
+			<img src="img/mole.png">
+		</div>
+		<div class="mole-hole">
+			<img src="img/mole.png">
+		</div>
+		<div class="mole-hole">
+			<img src="img/mole.png">
+		</div>
+ 
+	</div>
+ 
+	<script>
+
+	var holes = $('.mole-hole');
+
+	var rand = Math.floor(Math.random() * holes.length);
+	$(holes[rand]).children().fadeIn();
+
+ 
+ 
+	</script>
+ 
+</body>
+</html>
