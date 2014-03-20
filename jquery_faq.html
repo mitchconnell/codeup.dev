@@ -1,23 +1,36 @@
 <html>
 <head>
-	<title>National Parks Size</title>
-	<style>
-		.invisible {
-			display: none;
-		}		
-	</style>
+	<title>Parks FAQ</title>
+	<style type="text/css" media="screen">
+        #Acadia, #American-Samoa, #Arches  {
+            display: none;
+        }
+    </style>
+    <script src="/js/jquery.js"></script>
+    <script>
+        $('document').ready(function() {
+            $('#Acadia-toggle').click(function() {
+                $('#Acadia').toggle();
+            });
+            $('#American-Samoa-toggle').click(function() {
+                $('#American-Samoa').toggle();
+            });
+            $('#Arches-toggle').click(function() {
+                $('#Arches').toggle();
+            });
+        });
+    </script>
 </head>
 <body>
-	<h1>Park FAQ</h1>
-	<button id="toggleBtn">Toggle Answers</button>
-	<h3>Acadia</h3>
+	<h1>Parks</h1>
+	<h3 id="Acadia-toggle">Acadia</h3>
     <ul id="Acadia">
         <li>Covers most of Mount Desert Island</li>
         <li>Features the tallest mountain on the Atlantic coast</li>
         <li>Has freshwater estuary</li>
         <li>Has intertidal habitats</li>   
     </ul>
-    <h3>American Samoa</h3>
+    <h3 id="American-Samoa-toggle">American-Samoa</h3>
     <ul id="American-Samoa">
         <li>It is the southernmost national park is on three Samoan islands</li>
         <li>Protects coral reefs</li>
@@ -25,7 +38,7 @@
         <li>It is home to 900 species of fish</li>
         
     </ul>
-    <h3>Arches</h3>
+    <h3 id="Arches-toggle">Arches</h3>
     <ul id="Arches">
         <li>This site features more than 2,000 natural sandstone arches</li>
         <li>Millions of years of erosion have led to these structures</li>
@@ -33,19 +46,7 @@
         <li>Other geologic formations are stone columns and towers</li>      
     </ul>
 
-  	<script src="/js/jquery.js"></script>
-	<script type="text/javascript"></script>
-	<script>
-	$(document).ready(function() {
-
-		$('ul').each(function(){
-			$(this).children().first().css('font-weight', 'bold');
-		})
-		$('li').click(function(){
-			$(this).parent().addClass('invisible');
-		})
-	});      
-    </script>
+  	
 </body>
 </html>
 
