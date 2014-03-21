@@ -1,29 +1,27 @@
 <html>
 <head>
 	<title>Mole</title>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<button id="start">Start</button>
+
+	<script src="/js/jquery.js"></script>
 	<style>
  
 		#game-board {
 			margin: 10px auto;
 			width: 456px;
-		}
- 
+		} 
 		.mole-hole {
 			height: 150px;
 			width: 150px;
 			border: 1px solid black;
 			float: left;
-		}
- 
+		} 
 		.mole-hole img {
 			display: none;
-		}
- 
+		} 
 		body {
 			text-align: center;
-		}
- 
+		} 
 	</style>
 </head>
 <body>
@@ -67,11 +65,16 @@
 	<script>
 
 	var holes = $('.mole-hole');
+	setInterval(function() {
+		var rand = Math.floor(Math.random() * holes.length);
+		$(holes[rand]).children().fadeIn();
 
-	var rand = Math.floor(Math.random() * holes.length);
-	$(holes[rand]).children().fadeIn();
+		setTimeout(function(){
+			$(holes[rand]).children().fadeOut();
+		}, 1500);
+		
 
- 
+	},2000);
  
 	</script>
  
