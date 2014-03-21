@@ -1,8 +1,7 @@
 <html>
 <head>
 	<title>Mole</title>
-	<button id="StartButton">Start</button>
-
+	
 	<script src="/js/jquery.js"></script>
 	<style>
  
@@ -17,6 +16,8 @@
 			float: left;
 		} 
 		.mole-hole img {
+			height: 150px;
+			width: 150px;
 			display: none;
 		} 
 		body {
@@ -28,9 +29,13 @@
  
 	<h1>Mole Game</h1>
 
+	<h2>Score: <span id="score">0</span></h2>
+
+	<h2>Timer: <span id="timer">30</span></h2>
+
+	<button id="StartButton">Start</button>
  
 	<div id="game-board">
-
  
 		<div class="mole-hole">
 			<img src="img/mole.png">
@@ -66,24 +71,36 @@
  
 	<script>
 
+	var timer = 30;
+
+	$('#StartButton').click(function() {
+		 // $(this).start();
+		timer--;
+		$('#timer').html(timer)
+	});
+
+	var score = 0;
+
+	$('img').click(function() { 
+		$(this).hide();
+		score++;
+		$('#score').html(score);
+	});
+
 	$('#StartButton').click(function() {
 
-	var holes = $('.mole-hole');
+		var holes = $('.mole-hole');
 
-	setInterval(function() {
-		var rand = Math.floor(Math.random() * holes.length);
-			$(holes[rand]).children().fadeIn();
-
-
-		setTimeout(function(){
-			$(holes[rand]).children().fadeOut();
-		}, 1500);
-
-	},1500);
-
+		setInterval(function() {
+			var rand = Math.floor(Math.random() * holes.length);
+				$(holes[rand]).children().fadeIn();
+				
+			setTimeout(function(){
+				$(holes[rand]).children().fadeOut();
+			}, 1200);
+		}, 1800);
 	});
- 
-	</script>
- 
+
+	</script> 
 </body>
 </html>
