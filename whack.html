@@ -71,23 +71,25 @@
  
 	<script>
 
-	var timer = 30;
-
-	$('#StartButton').click(function() {
-		 // $(this).start();
-		timer--;
-		$('#timer').html(timer)
-	});
-
-	var score = 0;
-
 	$('img').click(function() { 
 		$(this).hide();
 		score++;
 		$('#score').html(score);
+		console.log(score);
 	});
 
 	$('#StartButton').click(function() {
+		
+		var score = 0;
+		var startTime = 30;
+		clearInterval(function(){
+			
+		})
+		setInterval(function() {
+			--startTime;
+
+			$('#timer').html(startTime);
+		}, 1000);
 
 		var holes = $('.mole-hole');
 
@@ -97,8 +99,8 @@
 				
 			setTimeout(function(){
 				$(holes[rand]).children().fadeOut();
-			}, 1200);
-		}, 1800);
+			}, 1000);
+		}, 2000);
 	});
 
 	</script> 
